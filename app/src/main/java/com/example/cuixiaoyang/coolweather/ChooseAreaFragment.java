@@ -2,6 +2,7 @@ package com.example.cuixiaoyang.coolweather;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,6 +22,7 @@ import com.example.cuixiaoyang.coolweather.activity.WeatherActivity;
 import com.example.cuixiaoyang.coolweather.db.City;
 import com.example.cuixiaoyang.coolweather.db.County;
 import com.example.cuixiaoyang.coolweather.db.Province;
+import com.example.cuixiaoyang.coolweather.gson.Weather;
 import com.example.cuixiaoyang.coolweather.util.HttpUtil;
 import com.example.cuixiaoyang.coolweather.util.Utility;
 
@@ -146,7 +148,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * 查询全国所有的县，优先从数据库查询，如果没有查询到再去服务器上查询
+     * 查询全国所有的市，优先从数据库查询，如果没有查询到再去服务器上查询
      */
     private void queryCities() {
         titleText.setText(selectedProvince.getProvinceName());
@@ -169,7 +171,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * 查询全国所有的市，优先从数据库查询，如果没有查询到再去服务器上查询
+     * 查询全国所有的县，优先从数据库查询，如果没有查询到再去服务器上查询
      */
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
